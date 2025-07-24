@@ -1,0 +1,185 @@
+.ant-modal-root {
+  .ant-modal-mask {
+    height: 100% !important;
+  }
+
+  .ant-modal-wrap {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(0, 102, 197, 0.2);
+    backdrop-filter: blur(2px);
+    height: 100% !important;
+
+    .ant-modal {
+      position: none !important;
+      top: 0 !important;
+
+      .ant-modal-content {
+        border-radius: 5px !important;
+        overflow: hidden !important;
+        font-family: montserrat !important;
+
+        .ant-modal-body {
+          padding: 0% !important;
+        }
+      }
+    }
+  }
+}
+
+.anketa_wrapper {
+  width: 100%;
+  height: 100vh !important;
+  display: flex;
+  justify-content: center;
+  .scra {
+    position: relative;
+  }
+  .anketa {
+    overflow-y: scroll;
+    overscroll-behavior: contain;
+    width: 100%;
+    background-image: url(../../assets/gradentsiz-tg-bg.jpg) !important;
+    background-size: 750px;
+    max-width: 768px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+}
+
+/* ----------------------- Antd upload component style ---------------------- */
+.avatar-uploader {
+  .ant-upload-select-picture-card {
+    width: 100% !important;
+    height: 100% !important;
+    border: 1px solid var(--primary) !important;
+    margin: 0 !important;
+    border-radius: 7px !important;
+    background-color: #fff !important;
+  }
+}
+
+/* ----------------------- Antd upload component style ---------------------- */
+
+.form {
+  margin: 0 auto;
+  font-family: sans-serif;
+  display: grid;
+  grid-row-gap: 20px;
+  grid-column-gap: 10px;
+  margin-bottom: 70px;
+
+  .form-item {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    label {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 20px;
+    }
+
+    .label-note {
+      color: red !important;
+    }
+    div {
+      .label-input {
+        border-radius: 4px;
+        min-height: 38px !important;
+        border: var(--primary) 2px solid;
+        outline: none;
+        width: 100%;
+        text-indent: 5px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+        &:focus {
+          color: var(--input-focus-color);
+          border: var(--input-focus-color) 2px solid;
+        }
+      }
+
+      .date-input {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+      }
+
+      textarea {
+        height: 100% !important;
+        resize: none;
+      }
+    }
+    .form_table {
+      .add__row_table {
+        position: absolute;
+        top: -32px;
+        left: 0;
+        width: 30px;
+        background-color: var(--blue-color);
+        outline: none;
+        cursor: pointer;
+        border: none;
+        font-size: 15px;
+        font-weight: 700;
+        border-radius: 3px;
+      }
+      .wTable__wrapper {
+        height: 100% !important;
+      }
+    }
+  }
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.Modal-Portal {
+  z-index: 100000 !important;
+
+  .datepicker-modal {
+    height: 100% !important;
+    .datepicker {
+      top: 30%;
+      height: 355px;
+      .datepicker-content {
+        .datepicker-wheel {
+          z-index: 20000 !important;
+        }
+      }
+    }
+    .datepicker-navbar {
+      flex-direction: row-reverse;
+    }
+    .ios {
+    }
+  }
+}
+
+// Antd Tour
+
+.css-dev-only-do-not-override-14wwjjs.ant-tour {
+  max-width: 300px !important;
+}
+
+.ant-popover {
+  max-width: 300px !important;
+}
+
+.css-14wwjjs.ant-tour {
+  max-width: 300px !important;
+}
+
+.ant-tour-content {
+  max-width: 300px !important;
+}
+
+.ant-tour-inner {
+  max-width: 300px !important;
+}

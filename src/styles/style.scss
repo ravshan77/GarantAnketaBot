@@ -1,0 +1,100 @@
+:root {
+  --light-blue: #a1d2ff;
+  --light-white3: #f3f3f9;
+  --primary: rgb(89, 122, 204);
+  --vz-gray: #878a99;
+  --blue-color: #70c4ff;
+  --fg: #17181c;
+  --shade1: #727274;
+  --shade2: #cccdd1;
+  --shade3: #f3f4f8;
+  --shade4: #ffffff;
+  --dur1: 1s;
+  --dur2: 6s;
+  --input-focus-color: #0350b4;
+  font-size: calc(16px + (32 - 16) * (100vw - 320px) / (2560 - 320));
+}
+
+* {
+  box-sizing: border-box;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 100% !important;
+  // overflow: hidden !important;
+  // border: 1px solid red;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.d__flc_aic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.conform-Modal__className {
+  .ant-modal-body {
+    .ant-modal-confirm-body-wrapper {
+      padding: 18px !important;
+      font-size: 16px;
+      letter-spacing: 1px;
+      font-family: sans-serif;
+    }
+  }
+}
+
+*:disabled {
+  cursor: default;
+  color: #101011 !important;
+  background-color: #fff !important;
+}
+
+select,input:disabled, textarea:disabled, input:disabled::placeholder, textarea:disabled::placeholder {
+  -webkit-text-fill-color: #101011 !important; /* 1. sets text fill to current `color` for safari */
+  opacity: 1; /* 2. correct opacity on iOS */
+  background-color: #fff !important;
+}
+
+
+/* .invalid class prevents CSS from automatically applying */
+.invalid input:required:invalid {
+  background: #BE4C54;
+}
+.invalid textarea:required:invalid {
+  background: #BE4C54;
+}
+.invalid select:required:invalid {
+  background: #BE4C54;
+}
+/* Mark valid inputs during .invalid state */
+.invalid input:required:valid {
+  background: #17D654 ;
+}
+.invalid textarea:required:valid {
+  background: #17D654 ;
+}
+.invalid select:required:valid {
+  background: #17D654 ;
+}

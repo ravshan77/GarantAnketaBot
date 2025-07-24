@@ -1,0 +1,107 @@
+.WTable_wrap {
+  font-family: "Roboto", sans-serif;
+  overflow: auto;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 100%;
+  box-shadow: var(--light-blue) 0px 0px 0px 1px,
+    rgb(209, 213, 219) 0px 0px 0px 1px inset;
+
+  .empty__Wtable {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .empty__icon {
+      svg {
+        width: 80px;
+      }
+    }
+  }
+
+  .WTable_table {
+    width: 100%;
+    background-color: #fff;
+    border-spacing: 0 !important;
+    border-collapse: separate !important;
+
+    thead {
+      background-color: var(--light-white3) !important;
+      position: sticky;
+      top: 0;
+      height: 37px;
+
+      tr {
+        th {
+          height: 10px !important;
+          padding: 0 6px;
+          width: 100%;
+          font-weight: 500;
+          border: 1px solid rgb(155, 180, 204);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          font-size: 13px;
+
+          .delete_icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+
+    tbody {
+      background-color: #fff;
+      tr {
+        td {
+          border: 1px solid rgb(155, 180, 204);
+          overflow: hidden;
+          outline: 0.5px solid var(--vz-gray);
+        }
+        div {
+          height: 100%;
+        }
+
+
+        .table-input {
+          height: 100%;
+          width: 100%;
+          margin: 0 auto;
+          border: none;
+          padding-left: 5px;
+          font-weight: 500;
+          outline: none !important;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+
+          &:focus {
+            color: var(--primary) !important;
+            border: red 2px solid !important;
+          }
+        }
+
+        .wtable__tr-x {
+          display: flex;
+          button {
+            cursor: pointer;
+            outline: none;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            svg {
+              width: 17px;
+              height: 17px;
+              path {
+                fill: red;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
