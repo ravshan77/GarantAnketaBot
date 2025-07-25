@@ -1,15 +1,6 @@
 import React from "react";
 import { tgUser } from "./constants";
 
-// Vite import.meta.env ni global ta'minlaydi
-
-// Telegram WebApp global interface
-if (typeof window !== "undefined") {
-  window.Telegram = window.Telegram || {};
-  window.Telegram.WebApp = window.Telegram.WebApp || {};
-}
-
-
 // HTML escape funksiyasi
 export const escapeHtml = (unsafe) => {
   return unsafe
@@ -29,8 +20,6 @@ export class ErrorBoundary extends React.Component {
     };
   }
 
-  //
-
   static getDerivedStateFromError(error) {
     return { hasError: true, error, errorPath: null };
   }
@@ -48,16 +37,12 @@ export class ErrorBoundary extends React.Component {
     const errorMessage = escapeHtml(`${error.name}: ${error.message}`);
 
     const message = `<pre>
-                      <b>Anketa botdan xato 👇 </b>
-                      <b>User:</b> ${userName}
-                      <b>First name:</b> ${firstName}
-
-                      <b>Error Info:</b>
-                      ${errorInfoText}
-
-                      <b>Error:</b>
-                      ${errorMessage}
-                    </pre>`;
+      <b>Anketa botdan xato 👇 </b>
+      <b>User:</b> ${userName}
+      <b>First name:</b> ${firstName}
+      <b>Error Message:</b> ${errorMessage}
+      <b>Error (full):</b> ${errorInfoText}
+    </pre>`;
 
     if (TELEGRAM_API) {
       fetch(TELEGRAM_API, {

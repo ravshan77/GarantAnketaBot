@@ -29,4 +29,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </Suspense>
   </ErrorBoundary>,
 )
-zerikmayabsizmi

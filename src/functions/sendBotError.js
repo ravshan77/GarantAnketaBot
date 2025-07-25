@@ -6,7 +6,7 @@ export function sendBotError(user, err) {
         <b>User:</b> ${user?.username}
         <b>First name:</b> ${user?.first_name}
         <b>Error Message:</b> ${err.message}
-        <b>Full Error:</b> ${JSON.stringify(err)}
+        <b>Error (full):</b> ${JSON.stringify(err)}
     </pre>`;
 
     fetch(TELEGRAM_API, {
