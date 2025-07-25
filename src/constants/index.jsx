@@ -67,3 +67,5 @@ export const localSaveOptions = {
     casr : [ {name:"Damas", id:"Damas"}, {name:"Labo", id:"Labo"}, {name:"Matiz", id:"Matiz"}, {name:"Nexia", id:"Nexia"}, {name:"Nexia 2", id:"Nexia 2"}, {name:"Nexia 3", id:"Nexia 3"}, {name:"Spark", id:"Spark"}, {name:"Lacetti", id:"Lacetti"}, {name:"Gentra", id:"Gentra"}, {name:"Cobalt", id:"Cobalt"}, {name:"Captiva", id:"Captiva"}, {name:"Epica", id:"Epica"}, {name:"Malibu", id:"Malibu"}, {name:"Malibu 2", id:"Malibu 2"}, {name:"Orlando", id:"Orlando"}, {name:"Tracker", id:"Tracker"}, {name:"Tracker 2", id:"Tracker 2"}, {name:"Equinox", id:"Equinox"}, {name:"Onix", id:"Onix"}, {name:"Бошка", id:"Бошка"}, ],
   }
 /* ---------------------------- Lockal save dates 👆--------------------------- */
+
+export const tgUser = typeof window !== "undefined" ? window?.Telegram?.WebApp?.initDataUnsafe?.user : undefined;

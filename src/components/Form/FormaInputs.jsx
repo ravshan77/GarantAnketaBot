@@ -1,4 +1,4 @@
-import React, { useState, memo, useRef } from 'react'
+import { useState, memo, useRef } from 'react'
 import { useSelector } from "react-redux";
 import ModalInput from './Inputs';
 import { Button, message, Modal, Popover, Tour } from 'antd';
@@ -7,6 +7,7 @@ import { POST } from '../../server/method';
 import { anketaForma } from '../../templates';
 import { anketaValidate } from '../../schema/validates';
 import { Info } from '../../assets';
+import { sendBotError } from '../../functions/sendBotError';
 
 
 
@@ -88,7 +89,10 @@ const FormaInputs = () => {
                   setIsOpenModal(false)
                   onClose()
               }
-          }).catch(err => message.error(JSON.stringify(err))).finally(() => setSaveLoading(false))
+          }).catch(err => {
+            message.error(JSON.stringify(err))
+            sendBotError(user, err);
+          }).finally(() => setSaveLoading(false))
       }   
 
 

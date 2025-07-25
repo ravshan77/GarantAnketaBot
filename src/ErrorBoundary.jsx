@@ -1,4 +1,5 @@
 import React from "react";
+import { tgUser } from "./constants";
 
 // Vite import.meta.env ni global ta'minlaydi
 
@@ -8,11 +9,9 @@ if (typeof window !== "undefined") {
   window.Telegram.WebApp = window.Telegram.WebApp || {};
 }
 
-export const tgUser =
-  typeof window !== "undefined" ? window?.Telegram?.WebApp?.initDataUnsafe : undefined;
 
 // HTML escape funksiyasi
-const escapeHtml = (unsafe) => {
+export const escapeHtml = (unsafe) => {
   return unsafe
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
@@ -42,8 +41,8 @@ export class ErrorBoundary extends React.Component {
 
     const TELEGRAM_API = import.meta.env.VITE_SEND_ERROR_TO_TG_BOT
 
-    const userName = escapeHtml(tgUser?.user?.username ?? "Noma'lum");
-    const firstName = escapeHtml(tgUser?.user?.first_name ?? "Noma'lum");
+    const userName = escapeHtml(tgUser?.username ?? "Noma'lum");
+    const firstName = escapeHtml(tgUser?.first_name ?? "Noma'lum");
 
     const errorInfoText = escapeHtml(JSON.stringify(errorInfo, null, 2));
     const errorMessage = escapeHtml(`${error.name}: ${error.message}`);

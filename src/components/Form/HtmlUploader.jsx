@@ -4,10 +4,11 @@ import React, {useState} from 'react';
 import { useSelector } from 'react-redux';
 import { Delete } from '../../assets';
 import { BaseUrl } from '../../baseUrl';
-import { KORIB_CHIQILMOQDA } from '../../constants';
+import { KORIB_CHIQILMOQDA, tgUser } from '../../constants';
 import { uuid } from '../../functions';
 import { POST } from '../../server/method';
 import "./uploadImage.scss";
+import { sendBotError } from '../../functions/sendBotError';
 
 
 // function convertHeicToPng(heicFile) {
@@ -56,9 +57,14 @@ function HtmlUploader({ name,  setHandleChange, getValues, actionUrl, deletImage
         let target = { [name]: null };
         setHandleChange(target);
         setProgress(0)
+
+        // inputni ham tozalash:
+        const fileInput = document.getElementById(labelName);
+        if (fileInput) fileInput.value = "";
       }
       // console.log(res);
     }).catch(err => {
+      sendBotError(tgUser, err);
       if (err.message === "Request failed with status code 500") {
         let target = { [name]: null };
         setHandleChange(target);
@@ -75,7 +81,7 @@ function HtmlUploader({ name,  setHandleChange, getValues, actionUrl, deletImage
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    
+    const input = event.target;
     // if (event.target.files[0].type === "") {
     //   // heic format
     //   return undefined
@@ -86,7 +92,7 @@ function HtmlUploader({ name,  setHandleChange, getValues, actionUrl, deletImage
       setSaveLoading(true);
       setLockalLoading(true)
       const formData = new FormData();
-      formData.append("file", event.target.files[0]);
+      formData.append("file", input.files[0]);
 
       await axios.post(BaseUrl + actionUrl, formData,{
         onUploadProgress: progressEvent => {
@@ -98,9 +104,13 @@ function HtmlUploader({ name,  setHandleChange, getValues, actionUrl, deletImage
         if(res.status === 200){
           setHandleChange({[name] : res.data})
           setProgress(0)
+          input.value = ""; // <-- bu yerda input tozalanadi ✅
         }else{
           throw new Error("Rasm yuklashda xatolik")
-        }}).catch(err => message.error("Rasm yuklashda xatolik")).finally(() => {
+        }}).catch(err => {
+          message.error("Rasm yuklashda xatolik")
+          sendBotError(tgUser, err);
+        }).finally(() => {
           setSaveLoading(false)
           setLockalLoading(false)
         });
