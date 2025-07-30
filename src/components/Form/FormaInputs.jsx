@@ -90,7 +90,7 @@ const FormaInputs = () => {
                   onClose()
               }
           }).catch(err => {
-            message.error(JSON.stringify(err))
+            message.error(JSON.stringify(err.message))
             sendBotError(user, err);
           }).finally(() => setSaveLoading(false))
       }   
