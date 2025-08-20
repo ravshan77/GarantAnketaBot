@@ -61,10 +61,12 @@ function HtmlUploader({ name,  setHandleChange, getValues, actionUrl, deletImage
         // inputni ham tozalash:
         const fileInput = document.getElementById(labelName);
         if (fileInput) fileInput.value = "";
+      } else{
+        sendBotError(res, "Rasm o'chirishda xato");
       }
       // console.log(res);
     }).catch(err => {
-      sendBotError(tgUser, err);
+      sendBotError(err, "Rasm o'chirishda xato");
       if (err.message === "Request failed with status code 500") {
         let target = { [name]: null };
         setHandleChange(target);
@@ -79,7 +81,7 @@ function HtmlUploader({ name,  setHandleChange, getValues, actionUrl, deletImage
   }
 
 
-  const handleSubmit = async (event) => {
+  const handleUpload = async (event) => {
     event.preventDefault()
     const input = event.target;
     // if (event.target.files[0].type === "") {
@@ -106,10 +108,10 @@ function HtmlUploader({ name,  setHandleChange, getValues, actionUrl, deletImage
           setProgress(0)
           input.value = ""; // <-- bu yerda input tozalanadi ✅
         }else{
-          throw new Error("Rasm yuklashda xatolik")
+          sendBotError(res, "Rasm yuklashda xatolik");
         }}).catch(err => {
+          sendBotError(err, "Rasm yuklashda xatolik");
           message.error("Rasm yuklashda xatolik")
-          sendBotError(tgUser, err, "Rasm yuklashda xatolik");
         }).finally(() => {
           setSaveLoading(false)
           setLockalLoading(false)
@@ -155,7 +157,7 @@ function HtmlUploader({ name,  setHandleChange, getValues, actionUrl, deletImage
           className='up-input' 
           name={name} 
           id={labelName} 
-          onChange={handleSubmit} 
+          onChange={handleUpload} 
         />
       </>
     }

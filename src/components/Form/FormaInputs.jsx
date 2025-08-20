@@ -88,10 +88,12 @@ const FormaInputs = () => {
                   message.success("Anketangiz yuborildi")
                   setIsOpenModal(false)
                   onClose()
+              } else{
+                sendBotError(res, "Anketa yuborishda xato");
               }
           }).catch(err => {
+            sendBotError(err, "Anketa yuborishda xato");
             message.error(JSON.stringify(err.message))
-            sendBotError(user, err, "Anketa yuborishda xato");
           }).finally(() => setSaveLoading(false))
       }   
 
