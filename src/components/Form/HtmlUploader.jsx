@@ -109,7 +109,7 @@ function HtmlUploader({ name,  setHandleChange, getValues, actionUrl, deletImage
           throw new Error("Rasm yuklashda xatolik")
         }}).catch(err => {
           message.error("Rasm yuklashda xatolik")
-          sendBotError(tgUser, err);
+          sendBotError(tgUser, err, "Rasm yuklashda xatolik");
         }).finally(() => {
           setSaveLoading(false)
           setLockalLoading(false)

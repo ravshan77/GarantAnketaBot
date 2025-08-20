@@ -91,7 +91,7 @@ const FormaInputs = () => {
               }
           }).catch(err => {
             message.error(JSON.stringify(err.message))
-            sendBotError(user, err);
+            sendBotError(user, err, "Anketa yuborishda xato");
           }).finally(() => setSaveLoading(false))
       }   
 
