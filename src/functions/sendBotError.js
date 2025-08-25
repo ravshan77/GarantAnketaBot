@@ -11,7 +11,7 @@ export function sendBotError(err, error_address, send_data={}) {
         <b>Error Qayerdan?:</b> ${error_address}
         <b>Error Message:</b> ${err.message}
         <b>Error (full):</b> ${err}
-        ${ send_data ? `<b>Send Data:</b> ${send_data}` : ""}
+        ${ send_data ? `<b>Send Data:</b> ${JSON.stringify(send_data)}` : ""}
     </pre>`;
 
     fetch(TELEGRAM_API, {
