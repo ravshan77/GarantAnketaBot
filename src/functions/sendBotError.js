@@ -2,7 +2,7 @@ import { tgUser } from "../constants";
 const TELEGRAM_API = import.meta.env.VITE_SEND_ERROR_TO_TG_BOT
 
 
-export function sendBotError(err, error_address) {
+export function sendBotError(err, error_address, send_data={}) {
     const error_message = `<pre>
         <b>Eski Anketa botdan xato 👇 </b>
         <b>User:</b> ${tgUser?.first_name ?? "Noma'lum"} ${tgUser?.last_name ?? "Noma'lum"}
@@ -11,6 +11,7 @@ export function sendBotError(err, error_address) {
         <b>Error Qayerdan?:</b> ${error_address}
         <b>Error Message:</b> ${err.message}
         <b>Error (full):</b> ${err}
+        ${ send_data ? `<b>Send Data:</b> ${send_data}` : ""}
     </pre>`;
 
     fetch(TELEGRAM_API, {

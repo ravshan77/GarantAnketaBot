@@ -92,7 +92,7 @@ const FormaInputs = () => {
                 sendBotError(res, "Anketa yuborishda xato");
               }
           }).catch(err => {
-            sendBotError(err, "Anketa yuborishda xato");
+            sendBotError(err, "Anketa yuborishda xato", {...currentPage?.sendDeafultValue, ...values,  chat_id: user?.id});
             message.error(JSON.stringify(err.message))
           }).finally(() => setSaveLoading(false))
       }   
